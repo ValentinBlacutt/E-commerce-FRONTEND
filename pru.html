@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big MARKET</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pru.css">
+</head>
+<body>
+    <div id="loginPage">
+        <div class="login-container">
+            <h2 class="text-center mb-2">Big MARKET</h2>
+            <p class="brand-subtitle">De Moron para el Mundo</p>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="mainPage">
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Big MARKET</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <form class="d-flex search-bar mx-auto">
+                        <input class="form-control me-2" type="search" placeholder="¿Qué estás buscando?">
+                        <button class="btn btn-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user"></i> 
+                                <span id="userDisplay"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-4 mobile-categories d-md-none">
+            <select id="mobileCategoriesSelect" class="form-select">
+                <option>Seleccionar Categoría</option>
+                <option>Computadoras</option>
+                <option>Smartphones</option>
+                <option>Audio</option>
+                <option>Gaming</option>
+                <option>Hogar</option>
+                <option>Auto</option>
+                <option>Cocina</option>
+                <option>Ropa</option>
+                <option>Deportes</option>
+                <option>Libros</option>
+            </select>
+        </div>
+
+        <div class="container mt-4 d-none d-md-block">
+            <h3 class="mb-4">Categorías</h3>
+            <div class="categories-container">
+                <button class="slider-button prev" onclick="slideCategories('prev')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-button next" onclick="slideCategories('next')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="categories-slider" id="categoriesSlider">
+                    <div class="category-card">
+                        <i class="fas fa-laptop"></i>
+                        <h6 class="mt-2">Computadoras</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h6 class="mt-2">Smartphones</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-headphones"></i>
+                        <h6 class="mt-2">Audio</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h6 class="mt-2">Gaming</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-home"></i>
+                        <h6 class="mt-2">Hogar</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-car"></i>
+                        <h6 class="mt-2">Auto</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-utensils"></i>
+                        <h6 class="mt-2">Cocina</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h6 class="mt-2">Ropa</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h6 class="mt-2">Deportes</h6>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-book"></i>
+                        <h6 class="mt-2">Libros</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <h3 class="mb-4">Productos Destacados</h3>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.xAdn_fLxGH0Wt5DGiOqAJAHaGC&pid=Api&P=0&h=180" class="card-img-top" alt="Laptop Pro">
+                        <div class="card-body">
+                            <h5 class="card-title">Laptop Pro 2024</h5>
+                            <p class="card-text d-none d-md-block">Intel i7, 16GB RAM, 512GB SSD, 15.6" FHD</p>
+                            <p class="product-price">$1.500.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://fdn.gsmarena.com/imgroot/news/24/01/samsung-galaxy-s24-ultra-what-to-expect/-1200x900m/gsmarena_002.jpg" class="card-img-top" alt="Smartphone">
+                        <div class="card-body">
+                            <h5 class="card-title">Samsung S24 Ultra</h5>
+                            <p class="card-text d-none d-md-block">6.7", 256GB, 12GB RAM, 108MP Cámara</p>
+                            <p class="product-price">$1.000.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://imgs.search.brave.com/3IeANs-Hh3k-yoRINWaz69SXyF4FSsMVuLFd5E8_e4g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZGlnaXRhbHNwb3J0/LmNvbS5hci9maWxl/cy9wcm9kdWN0cy81/Y2IwYzIwODU3ZGJj/LTQ1MTkyMS01MDB4/NTAwLmpwZw" class="card-img-top" alt="Zapatillas">
+                        <div class="card-body">
+                            <h5 class="card-title">Adidas Campus Black</h5>
+                            <p class="card-text d-none d-md-block">Edicion 2000s</p>
+                            <p class="product-price">$180.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://www.bhphotovideo.com/images/images2500x2500/razer_rz0402050200r3u_kraken_pro_v2_1341754.jpg" class="card-img-top" alt="Auriculares">
+                        <div class="card-body">
+                            <h5 class="card-title">Razer Kraken Pro V2</h5>
+                            <p class="card-text d-none d-md-block">Cable 2mts, Cancelación de ruido</p>
+                            <p class="product-price">$150.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://arsonyb2c.vtexassets.com/arquivos/ids/362074/PlayStation-5-DualShock.jpg?v=638162215101070000" class="card-img-top" alt="Consola">
+                        <div class="card-body">
+                            <h5 class="card-title">Play Station 5</h5>
+                            <p class="card-text d-none d-md-block">1TB, 4K, Control inalámbrico</p>
+                            <p class="product-price">$700.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://imgs.search.brave.com/ArZzhNvXLF1_QSYx3Y0L9X1jTRQO5HMY5K6V_tJbS0M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/NjAxMzctTUxBNzQ2/NTE4OTA1NThfMDIy/MDI0LUYud2VicA" class="card-img-top" alt="Cortadora de Cesped">
+                        <div class="card-body">
+                            <h5 class="card-title">Cortadora de cesped Black Decker</h5>
+                            <p class="card-text d-none d-md-block">Usa Nafta</p>
+                            <p class="product-price">$800.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <img src="https://imgs.search.brave.com/xz3thaXEJPrfjEB6jFZZle55T757UMc3wAw_tCAtgfs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90ZW1w/bG9mdXRib2wudnRl/eGFzc2V0cy5jb20v/YXJxdWl2b3MvaWRz/LzE5NDI4MDc5LTUw/MC1hdXRvP3Y9NjM4/NjI0MzQxNzI3NTMw/MDAwJndpZHRoPTUw/MCZoZWlnaHQ9YXV0/byZhc3BlY3Q9dHJ1/ZQ" class="card-img-top" alt="Pelota de Futbol">
+                        <div class="card-body">
+                            <h5 class="card-title">Pelota de Futbol original</h5>
+                            <p class="card-text d-none d-md-block">Edicion Copa Libertadores 2023</p>
+                            <p class="product-price">$200.000 ars</p>
+                            <button class="btn btn-primary w-100 add-to-cart">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="card product-card">
+                    <img src="https://imgs.search.brave.com/J1umtaq75xHJrHG_JS_5mg-4BSc4TSXBr4SOO9U2F0E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJhdmVnYS5j/b20vZjMwMC83NWU2/ZGMwMjJiNjM1MzBh/YjdlNGMyNGZkMTA5/MDA3Yi5qcGc" class="card-img-top" alt="Somier">
+                    <div class="card-body">
+                        <h5 class="card-title">Somier 2 plazas</h5>
+                        <p class="card-text d-none d-md-block">Cannon, color gris</p>
+                        <p class="product-price">$1.300.000</p>
+                        <button class="btn btn-primary w-100 add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </div>
+            </div>
+               
+        </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cartModalBody">
+                    <p id="cartEmptyMessage">Tu carrito está vacío</p>
+                    <ul id="cartItemsList" class="list-group"></ul>
+                </div>
+                <div class="modal-footer">
+                    <strong>Total: $<span id="cartTotalPrice">0</span></strong>
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="pru.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
